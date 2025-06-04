@@ -192,3 +192,12 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+/src_code
+/notebooks
+/data
+/documentations/college-reports
+/documentations/Presentations
+/documentations/References
+
+*.drawio
