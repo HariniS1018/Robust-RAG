@@ -201,3 +201,4 @@ cython_debug/
 /documentations/References
 
 *.drawio
+*.docx
