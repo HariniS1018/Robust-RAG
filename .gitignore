@@ -199,6 +199,7 @@ cython_debug/
 /documentations/college-reports
 /documentations/Presentations
 /documentations/References
+/demo
 
 *.drawio
 *.docx
