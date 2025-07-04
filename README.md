@@ -1,4 +1,3 @@
-________________________________________
 # Robust RAG System
 This repository contains the architecture and the implementation details for a Robust RAG (Retrieval-Augmented Generation) system designed to provide highly reliable and contextually relevant responses to user queries.
 
@@ -58,6 +57,7 @@ This is a critical multi-stage process designed to refine the initially retrieve
 - Filter Most Relevant Context: Selects the Most Relevant Context based on the scores, ensuring the highest quality information is passed to the LLM.
 
 **Response Generation (LLM)**
+
 Two stages of LLM interaction are utilized to enhance response reliability:
 - Generate Reliable Response using Keywords: An LLM (e.g., GPT) generates a Reliable Response based on the Filtered Keywords. This acts as an initial pass or a safeguard.
 - Generate Reliable Response using Context: Again the same LLM instance generates the Reliable Response using the Most Relevant Context. This is expected to be the more comprehensive and accurate response.
