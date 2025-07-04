@@ -1,3 +1,4 @@
+________________________________________
 # Robust RAG System
 This repository contains the architecture and the implementation details for a Robust RAG (Retrieval-Augmented Generation) system designed to provide highly reliable and contextually relevant responses to user queries.
 
@@ -12,12 +13,14 @@ This repository contains the architecture and the implementation details for a R
     - Retriever
     - Context Filtering and Scoring
     - Response Generation (LLM)
-    - How It Works (End-to-End Flow)
+- How It Works (End-to-End Flow)
 
 **Introduction**
+
 The Robust RAG System aims to overcome common limitations of standard RAG implementations by incorporating advanced context filtering and scoring mechanisms. This ensures that the Large Language Model (LLM) receives the most relevant and reliable contextual information, leading to more accurate and trustworthy responses for users.
 
 **Architecture Overview**
+
 The system is designed with modularity and scalability in mind. It handles document ingestion, intelligent retrieval of relevant contexts based on user prompts, a sophisticated multi-stage context filtering process, and reliable response generation using an LLM.
 The core flow involves:
 1. Ingesting documents into various storage solutions and a vector database (Chroma).
@@ -28,28 +31,37 @@ The core flow involves:
 6.	Delivering the final response back to the user.
 
 **System Components**
+
 **Storage Layer**
-- Google Cloud Storage / AWS S3 Bucket: External cloud storage solutions for long-term storage of raw documents.
-- Chroma: A vector database (likely used for storing embeddings of documents for efficient semantic search/retrieval).
+    - Google Cloud Storage / AWS S3 Bucket: External cloud storage solutions for long-term storage of raw documents.
+    - Chroma: A vector database (likely used for storing embeddings of documents for efficient semantic search/retrieval).
+
 **Data Ingestion**
-- Documents: Raw input data (e.g., text, PDFs) that is processed and stored.
-- Prompt: Input from the user via the UI, which is a prompt for querying existing data.
+    - Documents: Raw input data (e.g., text, PDFs) that is processed and stored.
+    - Prompt: Input from the user via the UI, which is a prompt for querying existing data.
+
 **User Interface (UI)**
-- User Interface: The front-end application where users interact with the system, submit documents/prompts, and receive the Final Response.
+    - User Interface: The front-end application where users interact with the system, submit documents/prompts, and receive the Final Response.
+
 **Server**
-- Server: The central orchestrator of the system. It handles user Requests from the UI, communicates with the Retriever and LLM components, and sends Responses back to the UI. It also provides Status Messages during document ingestion.
+    - Server: The central orchestrator of the system. It handles user Requests from the UI, communicates with the Retriever and LLM components, and sends Responses back to the UI. It also provides Status Messages during document ingestion.
+
 **Retriever**
-- Retriever: Responsible for fetching Relevant Contexts from Storage based on the Prompt from the Server.
+    - Retriever: Responsible for fetching Relevant Contexts from Storage based on the Prompt from the Server.
+
 **Context Filtering and Scoring**
+
 This is a critical multi-stage process designed to refine the initially retrieved contexts into the most reliable and relevant information for the LLM.
-- Isolate Active Context: Takes Relevant Contexts & Prompt and identifies Potential Contexts that are most likely to contain the answer.
-- Keyword Extraction: Extracts Keywords from the Potential Contexts.
-- Score Contexts: Evaluates the Potential Contexts and assigns a Score to each, resulting in Contexts & its Score.
-- Filter Most Relevant Context: Selects the Most Relevant Context based on the scores, ensuring the highest quality information is passed to the LLM.
+    - Isolate Active Context: Takes Relevant Contexts & Prompt and identifies Potential Contexts that are most likely to contain the answer.
+    - Keyword Extraction: Extracts Keywords from the Potential Contexts.
+    - Score Contexts: Evaluates the Potential Contexts and assigns a Score to each, resulting in Contexts & its Score.
+    - Filter Most Relevant Context: Selects the Most Relevant Context based on the scores, ensuring the highest quality information is passed to the LLM.
+
 **Response Generation (LLM)**
+
 Two stages of LLM interaction are utilized to enhance response reliability:
-- Generate Reliable Response using Keywords: An LLM (e.g., GPT) generates a Reliable Response based on the Filtered Keywords. This acts as an initial pass or a safeguard.
-- Generate Reliable Response using Context: Again the same LLM instance generates the Reliable Response using the Most Relevant Context. This is expected to be the more comprehensive and accurate response.
+    - Generate Reliable Response using Keywords: An LLM (e.g., GPT) generates a Reliable Response based on the Filtered Keywords. This acts as an initial pass or a safeguard.
+    - Generate Reliable Response using Context: Again the same LLM instance generates the Reliable Response using the Most Relevant Context. This is expected to be the more comprehensive and accurate response.
 
 **How It Works (End-to-End Flow)**
 1.	Document Ingestion: Documents are uploaded to cloud storage (Google Cloud Storage/AWS S3/Chroma) and then processed into the Storage layer, likely involving chunking and embedding.
