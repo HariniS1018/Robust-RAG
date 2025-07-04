@@ -33,6 +33,7 @@ The core flow involves:
 **System Components**
 
 **Storage Layer**
+
     - Google Cloud Storage / AWS S3 Bucket: External cloud storage solutions for long-term storage of raw documents.
     - Chroma: A vector database (likely used for storing embeddings of documents for efficient semantic search/retrieval).
 
