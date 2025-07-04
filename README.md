@@ -34,21 +34,24 @@ The core flow involves:
 
 **Storage Layer**
 
-    - Google Cloud Storage / AWS S3 Bucket: External cloud storage solutions for long-term storage of raw documents.
-    - Chroma: A vector database (likely used for storing embeddings of documents for efficient semantic search/retrieval).
+- Google Cloud Storage / AWS S3 Bucket: External cloud storage solutions for long-term storage of raw documents.
+- Chroma: A vector database (likely used for storing embeddings of documents for efficient semantic search/retrieval).
 
 **Data Ingestion**
-    - Documents: Raw input data (e.g., text, PDFs) that is processed and stored.
-    - Prompt: Input from the user via the UI, which is a prompt for querying existing data.
+
+- Documents: Raw input data (e.g., text, PDFs) that is processed and stored.
+- Prompt: Input from the user via the UI, which is a prompt for querying existing data.
 
 **User Interface (UI)**
-    - User Interface: The front-end application where users interact with the system, submit documents/prompts, and receive the Final Response.
+
+- User Interface: The front-end application where users interact with the system, submit documents/prompts, and receive the Final Response.
 
 **Server**
-    - Server: The central orchestrator of the system. It handles user Requests from the UI, communicates with the Retriever and LLM components, and sends Responses back to the UI. It also provides Status Messages during document ingestion.
+
+- Server: The central orchestrator of the system. It handles user Requests from the UI, communicates with the Retriever and LLM components, and sends Responses back to the UI. It also provides Status Messages during document ingestion.
 
 **Retriever**
-    - Retriever: Responsible for fetching Relevant Contexts from Storage based on the Prompt from the Server.
+- Retriever: Responsible for fetching Relevant Contexts from Storage based on the Prompt from the Server.
 
 **Context Filtering and Scoring**
 
