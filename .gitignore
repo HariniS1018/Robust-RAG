@@ -200,6 +200,7 @@ cython_debug/
 /documentations/Presentations
 /documentations/References
 /demo
+/experimental-results
 
 *.drawio
 *.docx
